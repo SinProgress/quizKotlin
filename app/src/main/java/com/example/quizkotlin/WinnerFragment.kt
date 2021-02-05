@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ListView
+import androidx.navigation.Navigation
 
 
 class WinnerFragment : Fragment() {
@@ -15,7 +18,20 @@ class WinnerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_winner, container, false)
+        val v=inflater.inflate(R.layout.fragment_winner, container, false)
+        val RButton=v.findViewById<Button>(R.id.reStartButton)
+        val report=v.findViewById<ListView>(R.id.checkWinnerRisultati) //passo listView
+        val adapter=CustomAdapter(Questionario.questions) // creo adapter
+        report.adapter=adapter
+
+        RButton.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_winnerFragment_to_startFragment)
+        )
+
+
+
+        return v
+
     }
 
 }

@@ -1,4 +1,4 @@
 package com.example.quizkotlin
 
-class Question(val question: String, val options:List<String>, val answer:Int) {
+class Question(val questionText: String, val options:List<String>, val answer:Int, var userAnswer: Answered=Answered.NONE) {
 }
